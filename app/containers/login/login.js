@@ -16,6 +16,7 @@ class Login extends React.Component{
       pwd: ''
     }
     this.handleLogin = this.handleLogin.bind(this)
+    this.toRegister = this.toRegister.bind(this)
   }
   handleChange(key, val){
     this.setState({
@@ -24,9 +25,9 @@ class Login extends React.Component{
   }
   handleLogin(){
     this.props.login(this.state)
-    setTimeout(()=>{
-      console.log(this.props.state)
-    },1000)
+  }
+  toRegister(){
+    this.props.history.push('/register')
   }
   render(){
     return(
@@ -44,6 +45,8 @@ class Login extends React.Component{
             </InputItem>
             <WhiteSpace/><WhiteSpace/>
             <Button type="primary" onClick={this.handleLogin}>登录</Button>
+            <WhiteSpace/>
+            <Button type="primary" onClick={this.toRegister}>注册</Button>
           </List>
         </WingBlank>
       </div>
